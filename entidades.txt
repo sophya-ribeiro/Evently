@@ -1,0 +1,11 @@
+Evento {
+    id,
+    nome String,
+    descricao String,
+    data_inicio Date,
+    horario_inicio Hora/Minuto,
+    duracao Minutos,
+    endereco (rua, bairro, numero, cidade, estado),
+    organizador String,
+    preço Numeric
+}
