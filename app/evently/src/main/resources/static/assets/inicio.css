@@ -133,3 +133,86 @@ li a {
 .dropdown-icon {
     font-size: 20px;
 }
+
+/* ----- CONTEUDO PRINCIPAL ----- */
+
+.container-titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao-adicionar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.secao-evento{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.div-nome{
+    background-color: #EBE6EF;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.container-informacoes{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.div-info{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.info-icon{
+    font-size: 20px;
+    color: black;
+}
+
+.div-info-location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    gap: 0.3rem;
+    padding: 0.2rem;
+    background-color: #583273;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.location-icon{
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+}
+
+.div-info-location p{
+    font-size: 13px;
+    color: white;
+}
+
+.container-organizador{
+    margin-top: -1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem
+}
