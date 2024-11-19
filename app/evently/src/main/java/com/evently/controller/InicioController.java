@@ -15,4 +15,9 @@ public class InicioController {
     public String locais() {
         return "locais";
     }
+
+    @GetMapping("/participante")
+    public String inicioParticipante() {
+        return "inicio-participante";
+    }
 }

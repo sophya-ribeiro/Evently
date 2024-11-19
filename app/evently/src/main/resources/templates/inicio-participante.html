@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evently - Início</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/inicio.css">
+  <link rel="icon" href="assets/images/favicon.png">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <img class="header-logo" src="../assets/images/logo.png" alt="Logotipo Evently">
+
+    <ul class="header-menu m-0">
+      <li><a class="dropdown-item nav-item-ativo">Eventos disponíveis</a></li>
+      <li><a class="dropdown-item nav-item-inativo">Meus locais</a></li>
+    </ul>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary button-account px-3 py-1" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <ion-icon name="person-circle-outline" class="person-circle-outline"></ion-icon>
+        Sophya Ribeiro
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item p-2 dropdown-item--ultimo dropdown-item--primeiro" href="/logout">
+          <ion-icon name="log-out-outline" class="dropdown-icon"></ion-icon>
+          Sair da conta
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container-titulo">
+      <h1 class="m-0">Eventos disponíveis</h1>
+    </div>
+
+    <section class="secao-evento">
+
+      <div class="div-nome">
+        <div class="div-titulo">
+          <h2 class="nome-evento-local m-0">Show Luan Santana: Meteoros da paixão</h2>
+          <p class="m-0 p-0"> restam 389 lugares</p>
+        </div>
+
+        <div class="div-info-location" title="Dia do início do evento">
+          <ion-icon name="location" class="location-icon"></ion-icon>
+          <p class="m-0">Arena Campo Largo</p>
+        </div>
+
+        <p class="descricao-evento m-0">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O
+          show conta com a participação especial de Ana Castela. Mais tarde na noite também haverá surpresas ao público.
+        </p>
+      </div>
+
+      <div class="container-informacoes">
+
+        <div class="div-info" title="Dia do início do evento">
+          <ion-icon name="calendar" class="info-icon"></ion-icon>
+          <p class="m-0">23/07/2024</p>
+        </div>
+
+        <div class="div-info" title="Horário do início evento">
+          <ion-icon name="time" class="info-icon"></ion-icon>
+          <p class="m-0">14:00</p>
+        </div>
+
+        <div class="div-info" title="Duração do evento">
+          <ion-icon name="hourglass" class="info-icon"></ion-icon>
+          <p class="m-0">140 minutos</p>
+        </div>
+
+        <div class="div-info" title="Preço da inscrição">
+          <ion-icon name="wallet" class="info-icon"></ion-icon>
+          <p class="m-0">R$ 120,00</p>
+        </div>
+
+      </div>
+
+      <div class="container-participante">
+        <button class="botao-primario">Increver-me</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-4">
+    <div class="div-slogan">
+      <img src="../assets/images/favicon.png" alt="Logotipo Evently somente o E.">
+      <h1 class="m-0 p-0">Transformando sua ideia <br>em um <strong>evento perfeito.</strong></h1>
+    </div>
+
+    <div class="div-contato">
+      <p class="m-0 p-0">© Evently, 2024 | </p>
+      <a href="mailto:sophya.ribeiro@ufms.br"> Fale conosco</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

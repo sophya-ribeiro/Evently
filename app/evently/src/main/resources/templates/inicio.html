@@ -109,7 +109,7 @@
 
     <div class="div-contato">
       <p class="m-0 p-0">© Evently, 2024 | </p>
-      <a href="mailto:sophya.ribeiro@ufms.br"> Fale conosco</a>
+      <a href="/participante"> Fale conosco</a>
     </div>
   </footer>
 
@@ -126,19 +126,19 @@
 
         <div class="modal-body p-5 py-4 rounded-4">
 
-          <form>
+          <form action="/salvar" method="post">
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="evento-nome" placeholder="Digite o nome do seu evento"
+                <label for="nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do seu evento"
                   required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="evento-nome" class="col-form-label">Descrição<span class="form-span">*</span></label>
-                <textarea class="form-control" aria-label="With textarea" id="evento-descricao"
+                <label for="descricao" class="col-form-label">Descrição<span class="form-span">*</span></label>
+                <textarea class="form-control" aria-label="With textarea" id="descricao" name="descricao"
                   placeholder="Faça uma pequena descrição do seu evento para atrair o público" required></textarea>
               </div>
             </div>
@@ -146,24 +146,52 @@
             <div class="mb-3 div-form">
 
               <div>
-                <label for="evento-data" class="col-form-label">Data<span class="form-span">*</span></label>
-                <input type="date" class="form-control" id="evento-data" placeholder="Lote">
+                <label for="dataInicio" class="col-form-label">Data<span class="form-span">*</span></label>
+                <input type="date" class="form-control" id="dataInicio" name="dataInicio" placeholder="Lote">
               </div>
 
               <div class="w-hora">
-                <label for="evento-hora" class="col-form-label">Hora<span class="form-span">*</span></label>
-                <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" required>
+                <label for="horaInicio" class="col-form-label">Hora<span class="form-span">*</span></label>
+                <input type="text" class="form-control w-20" id="horaInicio" name="horaInicio" placeholder="00:00"
+                  required>
               </div>
 
               <div class="w-duracao">
-                <label for="evento-duracao" class="col-form-label">Duração<span class="form-span">*</span> <span
+                <label for="duracao" class="col-form-label">Duração<span class="form-span">*</span> <span
                     class="form-span-min">(Min.)</span></label>
-                <input type="number" class="form-control" id="evento-duracao" placeholder="0" required>
+                <input type="number" class="form-control" id="duracao" name="duracao" placeholder="0" required>
               </div>
 
               <div>
                 <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00" required>
+                <input type="text" class="form-control" id="preco" name="preco" placeholder="R$00,00" required>
+              </div>
+
+            </div>
+
+            <div class="mb-3">
+
+              <p class="col-form-label">Selecione o local onde ocorrerá o evento: </p>
+
+              <div class="div-locais">
+                <div class="div-locais-opcao">
+                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
+                  <label for="localNome">Arena GSHOW</label><br>
+                  <p class="mb-0 p-0">350 pessoas</p>
+                </div>
+
+                <div class="div-locais-opcao">
+                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
+                  <label for="localNome">Arena GSHOW</label><br>
+                  <p class="mb-0 p-0">350 pessoas</p>
+                </div>
+
+                <div class="div-locais-opcao">
+
+                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
+                  <label for="localNome">Arena GSHOW</label><br>
+                  <p class="mb-0 p-0">350 pessoas</p>
+                </div>
               </div>
 
             </div>

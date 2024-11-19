@@ -49,4 +49,79 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "organizador_id", nullable = false)
     private Organizador organizador;
+
+    // construtores
+    public Evento(String nome, String descricao, LocalDate dataInicio, LocalTime horaInicio, Integer duracao, BigDecimal preco, LocalEvento local, Organizador organizador) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.dataInicio = dataInicio;
+        this.horaInicio = horaInicio;
+        this.duracao = duracao;
+        this.preco = preco;
+        this.local = local;
+        this.organizador = organizador;
+    }
+
+    public Evento(){
+        
+    }
+    
+
+    // getter e setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public LocalDate getData() {
+        return dataInicio;
+    }
+
+    public void setData(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public LocalTime getHora() {
+        return horaInicio;
+    }
+
+    public void setHora(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
 }

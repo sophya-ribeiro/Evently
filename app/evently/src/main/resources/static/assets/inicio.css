@@ -30,6 +30,20 @@
     border-radius: 8px;
 }
 
+.div-titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.div-titulo p{
+    font-size: 15px;
+    font-weight: 500;
+    color:#6305A5;
+}
+
 .container-informacoes{
     margin-top: 1rem;
     display: flex;
@@ -74,6 +88,15 @@
 }
 
 .container-organizador{
+    margin-top: -1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem
+}
+
+.container-participante{
     margin-top: -1.5rem;
     display: flex;
     flex-direction: row;
@@ -173,5 +196,27 @@ textarea{
     background-color:  #d4d4d4 !important;
 }
 
+.div-locais{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+}
 
+.div-locais-opcao{
+    background-color: #EEEEEE;
+    padding: 0.4rem 1.2rem;
+    border-radius: 10px;
+}
 
+.div-locais-opcao label{
+    font-size: 14px;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.div-locais-opcao p{
+    margin-left: 17px;
+    font-size: 12px;
+    font-weight: 300;
+}

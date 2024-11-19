@@ -6,16 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EventoRepository extends JpaRepository<Evento, Long> {
 
-    List<Evento> findByNome(String nome);
+    Optional<Evento> findById(Long id);
 
     List<Evento> findByDataInicio(LocalDate dataInicio);
 
     List<Evento> findByOrganizadorId(Long organizadorId);
-
-    List<Evento> findByLocalId(Long localId);
 
 }
