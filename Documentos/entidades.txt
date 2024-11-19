@@ -1,0 +1,29 @@
+Eventos {
+    id,
+    nome String,
+    descricao String,
+    data_inicio numero,
+    horario_inicio string,
+    duracao Minutos,
+    organizador String,
+    preço Numeric
+}
+
+Locais {
+    id,
+    nome,
+    endereço,
+    capacidade,
+}
+
+Organizadores{
+    id,
+    cnpj,
+    nome,
+    email,
+    tel
+}
+
+participantes{
+    id
+}

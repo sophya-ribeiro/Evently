@@ -1,8 +1,11 @@
-:root{
+:root {
 	--cor-primaria: #6305A5;
 }
 
 body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -10,47 +13,215 @@ body {
 	background-color: #F7F7F8 !important;
 }
 
-main{
+main {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	margin: 2rem 13rem 2rem 13em;
 	padding: 2rem;
 }
 
+
 /* ------- TEXTOS ------- */
-h1{
+
+h1 {
 	font-family: "Poppins", sans-serif;
 	font-size: 18px;
 	font-weight: 500;
 	color: black;
 }
 
-.nome-evento{
+.nome-evento-local {
 	font-size: 17px;
 	font-weight: 600;
 	color: black;
 }
 
-.descricao-evento{
+.descricao-evento {
 	font-size: 15px;
 	font-weight: 400;
 	color: black;
 }
 
 /* ----- BOTAO PRIMARIO ----- */
-.botao-primario{
-	padding: 0.6rem;
+
+.botao-primario {
+	padding: 0.6rem 1.5rem;
 	background-color: var(--cor-primaria);
 	color: white;
 	border: none;
 	border-radius: 50px;
-	width: 165px;
 	font-weight: 500;
 }
 
-.add-icon{
+.add-icon {
 	font-size: 25px;
 }
+
+/* ---- CABEÇALHO ---- */
+
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 2rem 3rem 2rem 3rem;
+	background-color: white;
+	align-items: center;
+}
+
+.header-logo {
+	width: 150px;
+	height: 40px;
+}
+
+.header-menu {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	align-items: center;
+}
+
+.person-circle-outline {
+	font-size: 25px;
+}
+
+header ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+}
+
+li {
+	list-style: none;
+}
+
+li a {
+	text-decoration: none;
+	color: black;
+}
+
+.nav-item-ativo {
+	text-decoration: none;
+	pointer-events: none;
+	font-weight: 700;
+	height: 100%;
+	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+	color: #6305A5;
+}
+
+.nav-item-inativo {
+	font-weight: 400;
+	text-decoration: none;
+	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+	color: #000;
+	display: flex;
+	justify-content: center;
+}
+
+.dropdown-menu {
+	width: 100%;
+	border-radius: 15px !important;
+	padding: 0 !important;
+	-webkit-box-shadow: 2px 3px 10px -2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 2px 3px 10px -2px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+.person-circle-outline {
+	font-size: 30px;
+	color: #777777;
+}
+
+#dropdownMenuButton {
+	background-color: transparent !important;
+	color: black;
+	border-color: #777777 !important;
+}
+
+.button-account {
+	display: flex !important;
+	align-items: center !important;
+	width: 100%;
+	gap: 1rem;
+	background-color: #FFF !important;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #000 !important;
+	font-size: 0.9rem !important;
+	font-weight: 400;
+	font-family: "Poppins", sans-serif !important;
+	border-radius: 150px !important;
+	border-width: 0.12rem !important;
+}
+
+.dropdown-item {
+	display: flex !important;
+	align-items: center !important;
+	border-radius: 0 !important;
+	gap: 0.5rem;
+	padding-left: 1rem !important;
+	border-radius: 15px !important;
+}
+
+.account-icon {
+	width: 18px !important;
+}
+
+.dropdown-icon {
+	font-size: 20px;
+}
+
+
+/* ------- RODAPÉ ------- */
+
+footer {
+	display: flex;
+	flex-direction: row;
+	padding: 3rem 5rem;
+	background-color: white;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+strong {
+	font-weight: 700;
+}
+
+footer img {
+	width: 80px;
+}
+
+.div-slogan {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	gap: 2rem;
+}
+
+footer h1 {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.div-contato {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+footer a {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 700;
+	color: var(--cor-primaria);
+}
+
 
 /*--------- Fonte - Poppins --------*/
 

@@ -10,4 +10,9 @@ public class InicioController {
     public String inicio() {
         return "inicio";
     }
+
+    @GetMapping("/meus-locais")
+    public String locais() {
+        return "locais";
+    }
 }

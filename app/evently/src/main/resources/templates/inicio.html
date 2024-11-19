@@ -28,7 +28,7 @@
 
     <ul class="header-menu m-0">
       <li><a class="dropdown-item nav-item-ativo">Meus eventos</a></li>
-      <li><a class="dropdown-item nav-item-inativo" href="/inicio/meus-locais">Meus locais</a></li>
+      <li><a class="dropdown-item nav-item-inativo" href="/meus-locais">Meus locais</a></li>
     </ul>
 
     <div class="dropdown">
@@ -38,11 +38,7 @@
         Sophya Ribeiro
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item dropdown-item--primeiro" href="#">
-          <ion-icon name="settings-outline" class="dropdown-icon"></ion-icon>
-          Configurações
-        </a>
-        <a class="dropdown-item dropdown-item--ultimo" href="/logout">
+        <a class="dropdown-item p-2 dropdown-item--ultimo dropdown-item--primeiro" href="/logout">
           <ion-icon name="log-out-outline" class="dropdown-icon"></ion-icon>
           Sair da conta
         </a>
@@ -54,21 +50,24 @@
   <main>
     <div class="container-titulo">
       <h1 class="m-0">Meus eventos</h1>
-      <button class="botao-primario botao-adicionar" type="button" id="criar-evento" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">
+      <button class="botao-primario botao-adicionar" type="button" id="criar-evento" data-bs-toggle="modal"
+        data-bs-target="#modalCriarEvento">
         <ion-icon name="add-outline" class="add-icon"></ion-icon>
         Criar evento</button>
     </div>
 
     <section class="secao-evento">
       <div class="div-nome">
-        <h2 class="nome-evento">Show Luan Santana: Meteoros da paixão</h2>
+        <h2 class="nome-evento-local">Show Luan Santana: Meteoros da paixão</h2>
 
         <div class="div-info-location" title="Dia do início do evento">
           <ion-icon name="location" class="location-icon"></ion-icon>
           <p class="m-0">Arena Campo Largo</p>
         </div>
 
-        <p class="descricao-evento m-0">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O show conta com a participação especial de Ana Castela. Mais tarde na noite também haverá surpresas ao público.</p>
+        <p class="descricao-evento m-0">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O
+          show conta com a participação especial de Ana Castela. Mais tarde na noite também haverá surpresas ao público.
+        </p>
       </div>
 
       <div class="container-informacoes">
@@ -97,77 +96,158 @@
 
       <div class="container-organizador">
         <a href="">Excluir</a>
-        <a href="">Editar</a>
+        <a data-bs-toggle="modal" data-bs-target="#modalEditarEvento">Editar</a>
       </div>
     </section>
   </main>
 
+  <footer class="mt-4">
+    <div class="div-slogan">
+      <img src="../assets/images/favicon.png" alt="Logotipo Evently somente o E.">
+      <h1 class="m-0 p-0">Transformando sua ideia <br>em um <strong>evento perfeito.</strong></h1>
+    </div>
+
+    <div class="div-contato">
+      <p class="m-0 p-0">© Evently, 2024 | </p>
+      <a href="mailto:sophya.ribeiro@ufms.br"> Fale conosco</a>
+    </div>
+  </footer>
+
   <!-- ----------- MODAIS ----------- -->
 
-  <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="modalCriarEvento"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="modalCriarEvento" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
 
-        <div class="modal-content border-0">
-          <div class="modal-header text-white">
-            <h1 class="modal-title" id="modalCriarEvento">Novo produto</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header text-white rounded-bottom rounded-4">
+          <h1 class="modal-title" id="modalCriarEvento">Novo evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
 
-          <div class="modal-body p-5 py-4">
+        <div class="modal-body p-5 py-4 rounded-4">
 
-            <form>
-              <div class="mb-3 div-form">
-                <div class="w-100">
-                  <label for="evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
-                  <input type="text" class="form-control" id="evento-nome" placeholder="Digite o nome do seu evento" required>
-                </div>
+          <form>
+            <div class="mb-3 div-form">
+              <div class="w-100">
+                <label for="evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="evento-nome" placeholder="Digite o nome do seu evento"
+                  required>
+              </div>
+            </div>
+
+            <div class="mb-3 div-form">
+              <div class="w-100">
+                <label for="evento-nome" class="col-form-label">Descrição<span class="form-span">*</span></label>
+                <textarea class="form-control" aria-label="With textarea" id="evento-descricao"
+                  placeholder="Faça uma pequena descrição do seu evento para atrair o público" required></textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 div-form">
+
+              <div>
+                <label for="evento-data" class="col-form-label">Data<span class="form-span">*</span></label>
+                <input type="date" class="form-control" id="evento-data" placeholder="Lote">
               </div>
 
-              <div class="mb-3 div-form">
-                <div class="w-100">
-                  <label for="evento-nome" class="col-form-label">Descrição<span class="form-span">*</span></label>
-                  <textarea class="form-control" aria-label="With textarea" id="evento-descricao" placeholder="Faça uma pequena descrição do seu evento para atrair o público" required></textarea>
-                </div>
+              <div class="w-hora">
+                <label for="evento-hora" class="col-form-label">Hora<span class="form-span">*</span></label>
+                <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" required>
               </div>
 
-              <div class="mb-3 div-form">
-
-                <div>
-                  <label for="evento-data" class="col-form-label">Data<span class="form-span">*</span></label>
-                  <input type="date" class="form-control" id="evento-data" placeholder="Lote">
-                </div>
-
-                <div class="w-hora">
-                  <label for="evento-hora" class="col-form-label">Hora<span class="form-span">*</span></label>
-                  <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" required>
-                </div>
-
-                <div class="w-duracao">
-                  <label for="evento-duracao" class="col-form-label">Duração<span class="form-span">*</span> <span class="form-span-min">(Min.)</span></label>
-                  <input type="number" class="form-control" id="evento-duracao" placeholder="0" required>
-                </div>
-
-                <div>
-                  <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
-                  <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00" required>
-                </div>
-
+              <div class="w-duracao">
+                <label for="evento-duracao" class="col-form-label">Duração<span class="form-span">*</span> <span
+                    class="form-span-min">(Min.)</span></label>
+                <input type="number" class="form-control" id="evento-duracao" placeholder="0" required>
               </div>
 
-              
-              <div class="modal-footer border-0 p-0 pt-3">
-                <button type="submit" class="btn botao-primario rounded botao border-0 py-3 px-3">Criar
-                  evento</button>
+              <div>
+                <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00" required>
               </div>
-            </form>
 
-          </div>
+            </div>
 
+
+            <div class="modal-footer border-0 p-0 pt-3">
+              <button type="submit" class="btn botao-primario rounded botao border-0 py-2 px-5">Criar
+                evento</button>
+            </div>
+          </form>
 
         </div>
+
+
       </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="modalEditarEvento" tabindex="-1" aria-labelledby="modalEditarEvento" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header text-white rounded-bottom rounded-4">
+          <h1 class="modal-title" id="modalEditarEvento">Editar evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-5 py-4 rounded-4">
+
+          <form>
+            <div class="mb-3 div-form">
+              <div class="w-100">
+                <label for="evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="evento-nome" placeholder="Digite o nome do seu evento"
+                  required>
+              </div>
+            </div>
+
+            <div class="mb-3 div-form">
+              <div class="w-100">
+                <label for="evento-nome" class="col-form-label">Descrição<span class="form-span">*</span></label>
+                <textarea class="form-control" aria-label="With textarea" id="evento-descricao"
+                  placeholder="Faça uma pequena descrição do seu evento para atrair o público" required></textarea>
+              </div>
+            </div>
+
+            <div class="mb-3 div-form">
+
+              <div>
+                <label for="evento-data" class="col-form-label">Data<span class="form-span">*</span></label>
+                <input type="date" class="form-control" id="evento-data" placeholder="Lote">
+              </div>
+
+              <div class="w-hora">
+                <label for="evento-hora" class="col-form-label">Hora<span class="form-span">*</span></label>
+                <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" required>
+              </div>
+
+              <div class="w-duracao">
+                <label for="evento-duracao" class="col-form-label">Duração<span class="form-span">*</span> <span
+                    class="form-span-min">(Min.)</span></label>
+                <input type="number" class="form-control" id="evento-duracao" placeholder="0" required>
+              </div>
+
+              <div>
+                <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00" required>
+              </div>
+
+            </div>
+
+
+            <div class="modal-footer border-0 p-0 pt-3">
+              <button type="submit" class="btn botao-primario rounded botao border-0 py-2 px-5">Salvar evento
+              </button>
+            </div>
+          </form>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 
 </body>
 
