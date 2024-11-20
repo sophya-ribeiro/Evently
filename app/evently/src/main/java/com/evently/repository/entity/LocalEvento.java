@@ -29,4 +29,49 @@ public class LocalEvento {
     @ManyToOne
     @JoinColumn(name = "organizador_id", nullable = false) 
     private Organizador organizador; 
+
+    // métodos
+    public LocalEvento(String nome, String endereco, Integer capacidade, Organizador organizador) {
+        super();
+        this.nome = nome;
+        this.endereco = endereco;
+        this.capacidade = capacidade;
+        this.organizador = organizador;
+    }
+    
+    public LocalEvento() {
+    }
+
+    // getters e setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Integer getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(Integer capacidade) {
+        this.capacidade = capacidade;
+    }
 }

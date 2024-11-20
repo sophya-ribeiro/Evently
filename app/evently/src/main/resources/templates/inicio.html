@@ -35,7 +35,7 @@
       <button class="btn btn-secondary button-account px-3 py-1" type="button" id="dropdownMenuButton"
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <ion-icon name="person-circle-outline" class="person-circle-outline"></ion-icon>
-        Sophya Ribeiro
+        <span th:text="${nomeUsuarioLogado}">Sophya Ribeiro</span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item p-2 dropdown-item--ultimo dropdown-item--primeiro" href="/logout">
@@ -56,16 +56,17 @@
         Criar evento</button>
     </div>
 
-    <section class="secao-evento">
+    <section th:each="evento : ${eventos}" class="secao-evento">
       <div class="div-nome">
-        <h2 class="nome-evento-local">Show Luan Santana: Meteoros da paixão</h2>
+        <h2 class="nome-evento-local" th:text="${evento.nome}">Show Luan Santana: Meteoros da paixão</h2>
 
         <div class="div-info-location" title="Dia do início do evento">
           <ion-icon name="location" class="location-icon"></ion-icon>
-          <p class="m-0">Arena Campo Largo</p>
+          <p class="m-0" th:text="${evento.local.nome}">Arena Campo Largo</p>
         </div>
 
-        <p class="descricao-evento m-0">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O
+        <p class="descricao-evento m-0" th:text="${evento.descricao}">Turnê de show exclusivo Luan Santana pelo Brasil
+          inteiro, edição capitais. O
           show conta com a participação especial de Ana Castela. Mais tarde na noite também haverá surpresas ao público.
         </p>
       </div>
@@ -74,29 +75,31 @@
 
         <div class="div-info" title="Dia do início do evento">
           <ion-icon name="calendar" class="info-icon"></ion-icon>
-          <p class="m-0">23/07/2024</p>
+          <p class="m-0"
+            th:text="${T(com.evently.repository.entity.DateUtils).formatLocalDate(evento.dataInicio, 'dd/MM/yyyy')}">
+            23/07/2024</p>
         </div>
 
         <div class="div-info" title="Horário do início evento">
           <ion-icon name="time" class="info-icon"></ion-icon>
-          <p class="m-0">14:00</p>
+          <p class="m-0" th:text="${evento.horaInicio}">14:00</p>
         </div>
 
         <div class="div-info" title="Duração do evento">
           <ion-icon name="hourglass" class="info-icon"></ion-icon>
-          <p class="m-0">140 minutos</p>
+          <p class="m-0" th:text="${evento.duracao} + ' minutos'">140 minutos</p>
         </div>
 
         <div class="div-info" title="Preço da inscrição">
           <ion-icon name="wallet" class="info-icon"></ion-icon>
-          <p class="m-0">R$ 120,00</p>
+          <p class="m-0" th:text="'R$ ' + ${evento.preco}">R$ 120,00</p>
         </div>
 
       </div>
 
       <div class="container-organizador">
-        <a href="">Excluir</a>
-        <a data-bs-toggle="modal" data-bs-target="#modalEditarEvento">Editar</a>
+        <a th:href="@{'/excluir/' + ${evento.id}}">Excluir</a>
+        <a data-bs-toggle="modal" th:attr="data-bs-target='#modalEditarEvento' + ${evento.id}">Editar</a>
       </div>
     </section>
   </main>
@@ -126,7 +129,7 @@
 
         <div class="modal-body p-5 py-4 rounded-4">
 
-          <form action="/salvar" method="post">
+          <form th:action="@{/salvar}" method="post">
             <div class="mb-3 div-form">
               <div class="w-100">
                 <label for="nome" class="col-form-label">Nome<span class="form-span">*</span></label>
@@ -153,7 +156,7 @@
               <div class="w-hora">
                 <label for="horaInicio" class="col-form-label">Hora<span class="form-span">*</span></label>
                 <input type="text" class="form-control w-20" id="horaInicio" name="horaInicio" placeholder="00:00"
-                  required>
+                  pattern="([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}" required>
               </div>
 
               <div class="w-duracao">
@@ -164,7 +167,7 @@
 
               <div>
                 <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="preco" name="preco" placeholder="R$00,00" required>
+                <input type="text" class="form-control" id="preco" name="preco" placeholder="R$ 00,00" required>
               </div>
 
             </div>
@@ -174,28 +177,16 @@
               <p class="col-form-label">Selecione o local onde ocorrerá o evento: </p>
 
               <div class="div-locais">
-                <div class="div-locais-opcao">
-                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
-                  <label for="localNome">Arena GSHOW</label><br>
-                  <p class="mb-0 p-0">350 pessoas</p>
+
+                <div class="div-locais-opcao" th:each="local : ${locais}">
+                  <input type="radio" th:attr="id='localNome' + ${local.id}" name="local_id" th:value="${local.id}">
+                  <label th:attr="for='localNome' + ${local.id}" th:text="${local.nome}">Arena GSHOW</label><br>
+                  <p class="mb-0 p-0" th:text="${local.capacidade} + ' pessoas' ">350 pessoas</p>
                 </div>
 
-                <div class="div-locais-opcao">
-                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
-                  <label for="localNome">Arena GSHOW</label><br>
-                  <p class="mb-0 p-0">350 pessoas</p>
-                </div>
-
-                <div class="div-locais-opcao">
-
-                  <input type="radio" id="localNome" name="localNome" value="Arena GSHOW">
-                  <label for="localNome">Arena GSHOW</label><br>
-                  <p class="mb-0 p-0">350 pessoas</p>
-                </div>
               </div>
 
             </div>
-
 
             <div class="modal-footer border-0 p-0 pt-3">
               <button type="submit" class="btn botao-primario rounded botao border-0 py-2 px-5">Criar
@@ -210,31 +201,35 @@
     </div>
   </div>
 
-  <div class="modal fade" id="modalEditarEvento" tabindex="-1" aria-labelledby="modalEditarEvento" aria-hidden="true">
+  <div th:each="evento : ${eventos}" class="modal fade" th:attr="id='modalEditarEvento' + ${evento.id}" tabindex="-1"
+    aria-labelledby="modalEditarEvento" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
 
       <div class="modal-content border-0 rounded-4">
         <div class="modal-header text-white rounded-bottom rounded-4">
-          <h1 class="modal-title" id="modalEditarEvento">Editar evento</h1>
+          <h1 class="modal-title">Editar evento</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body p-5 py-4 rounded-4">
 
-          <form>
+          <form th:action="@{/atualizar}" method="post">
+            <input type="hidden" name="id" th:value="${evento.id}" />
+
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="evento-nome" placeholder="Digite o nome do seu evento"
-                  required>
+                <label for="editar-evento-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="editar-evento-nome" name="nome"
+                  placeholder="Digite o nome do seu evento" th:value="${evento.nome}" required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="evento-nome" class="col-form-label">Descrição<span class="form-span">*</span></label>
-                <textarea class="form-control" aria-label="With textarea" id="evento-descricao"
-                  placeholder="Faça uma pequena descrição do seu evento para atrair o público" required></textarea>
+                <label for="evento-descricao" class="col-form-label">Descrição<span class="form-span">*</span></label>
+                <textarea class="form-control" aria-label="With textarea" id="evento-descricao" name="descricao"
+                  placeholder="Faça uma pequena descrição do seu evento para atrair o público"
+                  th:text="${evento.descricao}" required></textarea>
               </div>
             </div>
 
@@ -242,27 +237,47 @@
 
               <div>
                 <label for="evento-data" class="col-form-label">Data<span class="form-span">*</span></label>
-                <input type="date" class="form-control" id="evento-data" placeholder="Lote">
+                <input type="date" class="form-control" id="evento-data" th:value="${evento.dataInicio}"
+                  name="dataInicio" placeholder="Lote">
               </div>
 
               <div class="w-hora">
                 <label for="evento-hora" class="col-form-label">Hora<span class="form-span">*</span></label>
-                <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" required>
+                <input type="text" class="form-control w-20" id="evento-hora" placeholder="00:00" name="horaInicio"
+                  pattern="([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}" th:value="${evento.horaInicio}" required>
               </div>
 
               <div class="w-duracao">
                 <label for="evento-duracao" class="col-form-label">Duração<span class="form-span">*</span> <span
                     class="form-span-min">(Min.)</span></label>
-                <input type="number" class="form-control" id="evento-duracao" placeholder="0" required>
+                <input type="number" class="form-control" id="evento-duracao" placeholder="0"
+                  th:value="${evento.duracao}" name="duracao" required>
               </div>
 
               <div>
                 <label for="evento-preco" class="col-form-label">Preço<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00" required>
+                <input type="text" class="form-control" id="evento-preco" placeholder="R$00,00"
+                  th:value="${evento.preco}" name="preco" required>
               </div>
 
             </div>
 
+            <div class="mb-3">
+
+              <p class="col-form-label">Selecione o local onde ocorrerá o evento: </p>
+
+              <div class="div-locais">
+
+                <div class="div-locais-opcao" th:each="local : ${locais}">
+                  <input type="radio" th:attr="id='localNomeEditar' + ${local.id}" name="local_id"
+                    th:value="${local.id}" th:checked="${local.id == evento.local.id}">
+                  <label th:attr="for='localNomeEditar' + ${local.id}" th:text="${local.nome}">Arena GSHOW</label><br>
+                  <p class="mb-0 p-0" th:text="${local.capacidade} + ' pessoas' ">350 pessoas</p>
+                </div>
+
+              </div>
+
+            </div>
 
             <div class="modal-footer border-0 p-0 pt-3">
               <button type="submit" class="btn botao-primario rounded botao border-0 py-2 px-5">Salvar evento

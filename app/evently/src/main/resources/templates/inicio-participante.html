@@ -28,14 +28,14 @@
 
     <ul class="header-menu m-0">
       <li><a class="dropdown-item nav-item-ativo">Eventos disponíveis</a></li>
-      <li><a class="dropdown-item nav-item-inativo">Meus locais</a></li>
+      <li><a class="dropdown-item nav-item-inativo">Minhas inscrições</a></li>
     </ul>
 
     <div class="dropdown">
       <button class="btn btn-secondary button-account px-3 py-1" type="button" id="dropdownMenuButton"
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <ion-icon name="person-circle-outline" class="person-circle-outline"></ion-icon>
-        Sophya Ribeiro
+        <span th:text="${nomeUsuarioLogado}">Sophya Ribeiro</span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item p-2 dropdown-item--ultimo dropdown-item--primeiro" href="/logout">
@@ -96,7 +96,7 @@
       </div>
 
       <div class="container-participante">
-        <button class="botao-primario">Increver-me</button>
+        <button class="botao-primario">Inscrever-me</button>
       </div>
     </section>
   </main>

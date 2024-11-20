@@ -13,6 +13,8 @@ public interface EventoRepository extends JpaRepository<Evento, Long> {
 
     Optional<Evento> findById(Long id);
 
+    List<Evento> findAll();
+
     List<Evento> findByDataInicio(LocalDate dataInicio);
 
     List<Evento> findByOrganizadorId(Long organizadorId);

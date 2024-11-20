@@ -93,19 +93,19 @@ public class Evento {
         this.descricao = descricao;
     }
 
-    public LocalDate getData() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setData(LocalDate dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public LocalTime getHora() {
+    public LocalTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHora(LocalTime horaInicio) {
+    public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
@@ -123,5 +123,13 @@ public class Evento {
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    public LocalEvento getLocal() {
+        return local;
+    }
+
+    public void setLocal(LocalEvento local) {
+        this.local = local;
     }
 }

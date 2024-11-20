@@ -35,7 +35,7 @@
       <button class="btn btn-secondary button-account px-3 py-1" type="button" id="dropdownMenuButton"
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <ion-icon name="person-circle-outline" class="person-circle-outline"></ion-icon>
-        Sophya Ribeiro
+        <span th:text="${nomeUsuarioLogado}">Sophya Ribeiro</span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item dropdown-item--ultimo" href="/logout">
@@ -56,23 +56,23 @@
         Cadastrar local</button>
     </div>
 
-    <section class="secao-local">
+    <section class="secao-local" th:each="local : ${locais}">
 
-      <h2 class="nome-evento-local">Arena Campo Largo</h2>
+      <h2 class="nome-evento-local" th:text="${local.nome}">Arena Campo Largo</h2>
 
       <div class="div-info" title="Capacidade">
         <ion-icon name="person-add" class="info-icon"></ion-icon>
-        <p class="m-0">350 pessoas</p>
+        <p class="m-0" th:text="${local.capacidade} + ' pessoas'">350 pessoas</p>
       </div>
 
       <div class="div-info" title="Endereço">
         <ion-icon name="location" class="info-icon"></ion-icon>
-        <p class="m-0">Rua Aquidauana, 255 - Centro - Campo Grande (MS)</p>
+        <p class="m-0" th:text="${local.endereco}">Rua Aquidauana, 255 - Centro - Campo Grande (MS)</p>
       </div>
 
       <div class="container-organizador">
-        <a href="">Excluir</a>
-        <a data-bs-toggle="modal" data-bs-target="#modalEditarLocal">Editar</a>
+        <a th:href="@{'/meus-locais/excluir/' + ${local.id}}">Excluir</a>
+        <a data-bs-toggle="modal" th:attr="data-bs-target='#modalEditarLocal' + ${local.id}">Editar</a>
       </div>
 
     </section>
@@ -104,28 +104,29 @@
 
         <div class="modal-body p-5 py-4 rounded-4">
 
-          <form>
+          <form th:action="@{/meus-locais/salvar}" method="post">
+            
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="local-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="local-nome" placeholder="Digite o nome do seu local"
+                <label for="nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do seu local"
                   required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="local-endereco" class="col-form-label  p-0">Endereço<span class="form-span">*</span></label>
+                <label for="endereco" class="col-form-label  p-0">Endereço<span class="form-span">*</span></label>
                 <p class="endereco-subtitulo m-0 pb-2">Certifique-se de inserir a rua, bairro, cidade e estado.</p>
-                <input type="text" class="form-control" id="local-endereco" placeholder="Digite o endereço do seu local"
+                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço do seu local"
                   required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-25">
-                <label for="local-capacidade" class="col-form-label">Capacidade<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="local-endereco" placeholder="0 pessoas"
+                <label for="capacidade" class="col-form-label">Capacidade<span class="form-span">*</span></label>
+                <input type="number" class="form-control" id="capacidade" name="capacidade" placeholder="0 pessoas"
                 required>
               </div>
             </div>
@@ -140,39 +141,42 @@
     </div>
   </div>
 
-  <div class="modal fade" id="modalEditarLocal" tabindex="-1" aria-labelledby="modalEditarLocal" aria-hidden="true" >
+  <div th:each="local : ${locais}" class="modal fade" th:attr="id='modalEditarLocal' + ${local.id}" tabindex="-1" aria-labelledby="modalEditarLocal" aria-hidden="true" >
     <div class="modal-dialog modal-lg modal-dialog-centered">
 
       <div class="modal-content border-0 rounded-4">
         <div class="modal-header text-white rounded-bottom rounded-4">
-          <h1 class="modal-title" id="modalEditarLocal">Editar local</h1>
+          <h1 class="modal-title">Editar local</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body p-5 py-4 rounded-4">
 
-          <form>
+          <form th:action="@{/meus-locais/atualizar}" method="post">
+
+            <input type="hidden" name="id" th:value="${local.id}"/>
+
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="local-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="local-nome" placeholder="Digite o nome do seu local"
+                <label for="editar-nome" class="col-form-label">Nome<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="editar-nome" name="nome" th:value="${local.nome}"
                   required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-100">
-                <label for="local-endereco" class="col-form-label  p-0">Endereço<span class="form-span">*</span></label>
+                <label for="editar-endereco" class="col-form-label  p-0">Endereço<span class="form-span">*</span></label>
                 <p class="endereco-subtitulo m-0 pb-2">Certifique-se de inserir a rua, bairro, cidade e estado.</p>
-                <input type="text" class="form-control" id="local-endereco" placeholder="Digite o endereço do seu local"
+                <input type="text" class="form-control" id="editar-endereco" name="endereco" th:value="${local.endereco}"
                   required>
               </div>
             </div>
 
             <div class="mb-3 div-form">
               <div class="w-25">
-                <label for="local-capacidade" class="col-form-label">Capacidade<span class="form-span">*</span></label>
-                <input type="text" class="form-control" id="local-endereco" placeholder="0 pessoas"
+                <label for="editar-capacidade" class="col-form-label">Capacidade<span class="form-span">*</span></label>
+                <input type="text" class="form-control" id="editar-capacidade" name="capacidade" th:value="${local.capacidade}"
                 required>
               </div>
             </div>

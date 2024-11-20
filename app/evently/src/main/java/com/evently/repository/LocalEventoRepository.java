@@ -7,9 +7,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LocalRepository extends JpaRepository<LocalEvento, Long> {
+public interface LocalEventoRepository extends JpaRepository<LocalEvento, Long> {
 
     List<LocalEvento> findByOrganizadorId(Long organizadorId);
+
+    List<LocalEvento> findAll();
+
+    boolean existsByNome(String nome);
 
     List<LocalEvento> findByNomeContaining(String nome);
 }
