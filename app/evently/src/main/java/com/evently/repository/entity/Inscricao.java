@@ -22,7 +22,7 @@ public class Inscricao {
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
-    private LocalDate data_inscricao;
+    private LocalDate dataInscricao;
 
     @ManyToOne
     @JoinColumn(name = "participante_id", nullable = false)
@@ -31,5 +31,47 @@ public class Inscricao {
     @ManyToOne
     @JoinColumn(name = "evento_id", nullable = false)
     private Evento evento;
+    
+    public Inscricao(LocalDate dataInscricao, Participante participante, Evento evento) {
+        this.dataInscricao = dataInscricao;
+        this.participante = participante;
+        this.evento = evento;
+    }
+    
+    public Inscricao() {
+    }
+
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDataInscricao() {
+        return dataInscricao;
+    }
+
+    public void setDataInscricao(LocalDate dataInscricao) {
+        this.dataInscricao = dataInscricao;
+    }
+
+    public Participante getParticipante() {
+        return participante;
+    }
+
+    public void setParticipante(Participante participante) {
+        this.participante = participante;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
 
 }

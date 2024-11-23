@@ -25,7 +25,7 @@ public class Evento {
     @Column(nullable = false, length = 128)
     private String nome;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 512)
     private String descricao;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -131,5 +131,9 @@ public class Evento {
 
     public void setLocal(LocalEvento local) {
         this.local = local;
+    }
+
+    public Organizador getOrganizador() {
+        return organizador;
     }
 }

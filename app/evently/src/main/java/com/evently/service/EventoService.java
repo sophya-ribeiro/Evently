@@ -56,7 +56,7 @@ public class EventoService {
             Evento evento = new Evento(nome, descricao, dataInicio, horaInicio, duracao, preco, local, organizador);
             eventoRepository.save(evento);
 
-            return "Contato salvo com sucesso!";
+            return "Evento salvo com sucesso!";
         }
 
         return "Não foi possível salvar Evento.";

@@ -27,8 +27,8 @@
     <img class="header-logo" src="../assets/images/logo.png" alt="Logotipo Evently">
 
     <ul class="header-menu m-0">
-      <li><a class="dropdown-item nav-item-ativo">Eventos disponíveis</a></li>
-      <li><a class="dropdown-item nav-item-inativo" href="/inscricoes">Minhas inscrições</a></li>
+      <li><a class="dropdown-item nav-item-inaativo" href="/">Eventos disponíveis</a></li>
+      <li><a class="dropdown-item nav-item-ativo">Minhas inscrições</a></li>
     </ul>
 
     <div class="dropdown">
@@ -53,21 +53,21 @@
       <h1 class="m-0">Eventos disponíveis</h1>
     </div>
 
-    <section class="secao-evento" th:each="evento : ${eventos}">
+    <section class="secao-evento" th:each="inscricao : ${inscricoes}">
 
       <div class="div-nome">
 
         <div class="div-titulo">
-          <h2 class="nome-evento-local m-0" th:text="${evento.nome}">Show Luan Santana: Meteoros da paixão</h2>
-          <p class="m-0 p-0" th:text="'Organização: ' + ${evento.organizador.usuario.nome}"> Sophya Ribeiro</p>
+          <h2 class="nome-evento-local m-0" th:text="${inscricao.evento.nome}">Show Luan Santana: Meteoros da paixão</h2>
+          <p class="m-0 p-0" th:text="'Organização: ' + ${inscricao.evento.organizador.usuario.nome}"> Sophya Ribeiro</p>
         </div>
 
         <div class="div-info-location" title="Dia do início do evento">
           <ion-icon name="location" class="location-icon"></ion-icon>
-          <p class="m-0" th:text="${evento.local.nome}">Arena Campo Largo</p>
+          <p class="m-0" th:text="${inscricao.evento.local.nome}">Arena Campo Largo</p>
         </div>
 
-        <p class="descricao-evento m-0" th:text="${evento.descricao}">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O
+        <p class="descricao-evento m-0" th:text="${inscricao.evento.descricao}">Turnê de show exclusivo Luan Santana pelo Brasil inteiro, edição capitais. O
           show conta com a participação especial de Ana Castela. Mais tarde na noite também haverá surpresas ao público.
         </p>
       </div>
@@ -76,28 +76,28 @@
 
         <div class="div-info" title="Dia do início do evento">
           <ion-icon name="calendar" class="info-icon"></ion-icon>
-          <p class="m-0" th:text="${T(com.evently.repository.entity.DateUtils).formatLocalDate(evento.dataInicio, 'dd/MM/yyyy')}">23/07/2024</p>
+          <p class="m-0" th:text="${T(com.evently.repository.entity.DateUtils).formatLocalDate(inscricao.evento.dataInicio, 'dd/MM/yyyy')}">23/07/2024</p>
         </div>
 
         <div class="div-info" title="Horário do início evento">
           <ion-icon name="time" class="info-icon"></ion-icon>
-          <p class="m-0" th:text="${evento.horaInicio}">14:00</p>
+          <p class="m-0" th:text="${inscricao.evento.horaInicio}">14:00</p>
         </div>
 
         <div class="div-info" title="Duração do evento">
           <ion-icon name="hourglass" class="info-icon"></ion-icon>
-          <p class="m-0" th:text="${evento.duracao} + ' minutos'">140 minutos</p>
+          <p class="m-0" th:text="${inscricao.evento.duracao} + ' minutos'">140 minutos</p>
         </div>
 
         <div class="div-info" title="Preço da inscrição">
           <ion-icon name="wallet" class="info-icon"></ion-icon>
-          <p class="m-0" th:text="${evento.preco}">R$ 120,00</p>
+          <p class="m-0" th:text="${inscricao.evento.preco}">R$ 120,00</p>
         </div>
 
       </div>
 
       <div class="container-participante">
-          <a class="botao-primario text-decoration-none" th:href="@{'/inscrever/' + ${evento.id}}">Inscrever-me</a>
+        <p class="inscrito" th:text="'Inscrito em: ' + ${T(com.evently.repository.entity.DateUtils).formatLocalDate(inscricao.dataInscricao, 'dd/MM/yyyy')}">Inscrito em 12/01/2024</p>
       </div>
     </section>
   </main>

@@ -23,12 +23,13 @@ public class InicioController extends BaseController {
     public String inicio(Model model, HttpServletRequest request) {
         String nomeUsuarioLogado = request.getUserPrincipal().getName();
 
+        model.addAttribute("eventos", eventoService.getAllEvents());
+
         if (!userService.verificaOrganizador(nomeUsuarioLogado)) {
             return "inicio-participante";
         }
 
         model.addAttribute("locais", localEventoService.getAllLocais());
-        model.addAttribute("eventos", eventoService.getAllEvents());
 
         return "inicio";
     }

@@ -29,4 +29,7 @@ public class Organizador {
     @JoinColumn(name = "usuario_id", nullable = false) 
     private Usuario usuario; 
 
+    public Usuario getUsuario(){
+        return usuario;
+    }
 }

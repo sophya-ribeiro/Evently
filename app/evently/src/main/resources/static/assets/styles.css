@@ -58,6 +58,24 @@ h1 {
 	font-size: 25px;
 }
 
+/* ----- INSCRIÇOES ---- */
+
+.inscrito {
+	padding: 0.6rem 2rem;
+	color: black;
+	border: solid 1px black;
+	border-radius: 5px;
+	font-weight: 500;
+}
+
+.div-info-organizador{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: flex-start;
+}
+
+
 /* ---- CABEÇALHO ---- */
 
 header {

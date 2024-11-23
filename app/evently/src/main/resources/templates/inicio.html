@@ -92,7 +92,7 @@
 
         <div class="div-info" title="Preço da inscrição">
           <ion-icon name="wallet" class="info-icon"></ion-icon>
-          <p class="m-0" th:text="'R$ ' + ${evento.preco}">R$ 120,00</p>
+          <p class="m-0" th:text="${evento.preco == 0.00 ? 'Gratuito' : 'R$ ' + evento.preco}">R$ 120,00</p>
         </div>
 
       </div>
@@ -176,7 +176,7 @@
 
               <p class="col-form-label">Selecione o local onde ocorrerá o evento: </p>
 
-              <div class="div-locais">
+              <div class="div-locais d-flex flex-wrap">
 
                 <div class="div-locais-opcao" th:each="local : ${locais}">
                   <input type="radio" th:attr="id='localNome' + ${local.id}" name="local_id" th:value="${local.id}">
