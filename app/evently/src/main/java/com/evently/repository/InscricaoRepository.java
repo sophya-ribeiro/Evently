@@ -1,6 +1,5 @@
 package com.evently.repository;
 
-import com.evently.repository.entity.Evento;
 import com.evently.repository.entity.Inscricao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

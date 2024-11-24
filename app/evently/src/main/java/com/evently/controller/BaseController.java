@@ -1,13 +1,14 @@
 package com.evently.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.evently.service.UserService;
 
-public class BaseController {
+public class BaseController implements ErrorController  {
 
     @Autowired
     UserService userService;
