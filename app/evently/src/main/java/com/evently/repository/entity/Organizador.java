@@ -22,7 +22,7 @@ public class Organizador {
     @Column(nullable = false, length = 64)
     private String email;
 
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, length = 32)
     private String telefone;
 
     @OneToOne
