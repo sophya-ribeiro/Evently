@@ -23,7 +23,6 @@ public class Usuario {
     @Column(nullable = false, length = 128, unique = true)
     private String usuario;
 
-
     public Usuario(String nome, String senha, String usuario) {
         this.senha = senha;
         this.nome = nome;
