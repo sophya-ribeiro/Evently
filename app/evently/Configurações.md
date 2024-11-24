@@ -7,7 +7,6 @@ Evently é um sistema de gerenciamento de eventos. Este projeto utiliza Spring B
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
 - [Java 23](https://www.oracle.com/java/technologies/downloads/)
-- [Maven](https://maven.apache.org/install.html)
 - [Docker](https://docs.docker.com/get-docker/)
 
 
