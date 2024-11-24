@@ -27,23 +27,13 @@ BEGIN
     -- Ao atualizar
     IF TG_OP = 'UPDATE' THEN
         INSERT INTO log_eventos (evento_id, acao, data_hora, motivo)
-        VALUES (
-            NEW.id,                          
-            'UPDATE',                        
-            NOW(),                          
-            'Evento atualizado'            
-        );
+        VALUES (NEW.id, 'UPDATE', NOW(),' Evento atualizado');
         RETURN NEW;
     
     -- Ao deletar
     ELSIF TG_OP = 'DELETE' THEN
         INSERT INTO log_eventos (evento_id, acao, data_hora, motivo)
-        VALUES (
-            OLD.id,                          
-            'DELETE',                        
-            NOW(),                           
-            'Evento excluído'                
-        );
+        VALUES (OLD.id, 'DELETE', NOW(),'Evento excluído');
         RETURN OLD;
     END IF;
     
